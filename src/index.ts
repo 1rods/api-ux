@@ -4,6 +4,8 @@ import editprodutosRoutes from "./routes/editproduto";
 import addprodutosRoutes from "./routes/addprodutos";
 import deleteprodutoRoutes from "./routes/deleteproduto";
 import carrinhoRoutes from "./routes/carrinho";
+import registerRoutes from "./routes/register";
+import activateRoutes from "./routes/activate";
 import "./cache";
 
 const app = express();
@@ -14,6 +16,8 @@ app.use("/editproduto", editprodutosRoutes);
 app.use("/addprodutos", addprodutosRoutes);
 app.use("/deleteproduto", deleteprodutoRoutes);
 app.use("/carrinho", carrinhoRoutes);
+app.use("/register", registerRoutes);
+app.use("/activate", activateRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`online: http://localhost:${PORT}`));

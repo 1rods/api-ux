@@ -41,3 +41,11 @@ Obs: se o valor for igual a zero, o item é deletado
 Remover item do carrinho:
 Autorization = Auth Basic (Login e senha)
 -DELETE http://localhost:3000/carrinho/<$id_cart>
+
+Register:
+-GET http://localhost:3000/register
+{
+  "email": "teste@teste.com",
+  "username": "teste",
+  "password": "teste"
+}
