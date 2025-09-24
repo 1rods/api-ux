@@ -13,6 +13,11 @@ Autorization = Auth Basic (Login e senha)
 -POST http://localhost:3000/addprodutos
  prenchimento de valores: "name_produto, valor_produto, qtd_produto, desc_produto, img_produto"
  
+Deletar Produtos:
+Autorization = Auth Basic (Login e senha)
+-DELETE http://localhost:3000/deleteproduto/<$id>
+ prenchimento de valores: "name_produto, valor_produto, qtd_produto, desc_produto, img_produto"
+
 Carrinho user:
 
 
