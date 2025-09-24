@@ -22,7 +22,22 @@ Carrinho user:
 
 
 Adicionar item do carrinho:
+Autorization = Auth Basic (Login e senha)
+-POST http://localhost:3000/carrinho
+{
+  "produto_id": <$id>,
+  "qtd_produto_cart": <$qtd>
+}
 
+Atializar item do carrinho:
+Autorization = Auth Basic (Login e senha)
+-PUT http://localhost:3000/carrinho/<$id_cart>
+{
+  "produto_id": <$id>,
+  "qtd_produto_cart": <$qtd>
+}
+Obs: se o valor for igual a zero, o item é deletado
 
 Remover item do carrinho:
-
+Autorization = Auth Basic (Login e senha)
+-DELETE http://localhost:3000/carrinho/<$id_cart>
