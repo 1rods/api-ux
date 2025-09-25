@@ -68,10 +68,7 @@ router.put("/:cart_id", authUser, async (req, res) => {
       ]);
     }
 
-    const updated = await client.query(
-      "UPDATE cart SET qtd_produto_cart = $1 WHERE id = $2 RETURNING *",
-      [newQty, cartId]
-    );
+    const updated = await client.query("UPDATE cart SET qtd_produto_cart = $1 WHERE id = $2 RETURNING *", [newQty, cartId] );
 
     await client.query("COMMIT");
     return res.json({ message: "quantidade atualizada", cart: updated.rows[0] });
