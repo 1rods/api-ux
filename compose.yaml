@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  app:
+    image: "node:20.18.0-alpine3.19"
+    container_name: loja_app
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
+    environment:
+      - DATABASE_URL=postgresql://postgres:123@database:5432/postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - database
+      - redis
+
+  database:
+    image: "postgres"
+    container_name: loja_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=api-ux
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+  redis:
+    image: "redis:7-alpine"
+    container_name: loja_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  db_data:
